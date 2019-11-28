@@ -1,23 +1,10 @@
-import axios from 'axios';
+import nanshigou from './nsg';
+import myapi from './my';
 
-// 创建axios实例
-const my = axios.create({
-    baseURL: 'http://120.24.84.235:8080',
-    // headers: {'X-Custom-Header': 'foobar'}
-});
 
-function get(path, params, config = {}) {
-    return my.get(path, {
-        ...config,
-        params
-    })
-}
-
-function post(path, data = {}, config = {}) {
-    return my.post(path, data, config)
-}
-
-export {
-    get,
-    post
+export const nsg = nanshigou;
+export const my = myapi;
+export default {
+    nsg,
+    my
 }
