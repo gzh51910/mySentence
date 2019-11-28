@@ -1,20 +1,12 @@
-import React, { Component } from 'react';
-import { withToken } from '../utils/hoc';
-import { nsg } from '@/api';
+import React, { Component } from "react";
+import { withToken } from "../utils/hoc";
 @withToken
 class Home extends Component {
-    // async componentDidMount() {
-    //     let { datas } = await nsg.get({
-    //         act: 'index'
-    //     })
-    //     console.log(datas);
-
-    // }
     constructor() {
-        super()
+        super();
         this.state = {
-            hanhong: ''
-        }
+            hanhong: ""
+        };
     }
     render() {
         // console.log(this.props.bb());

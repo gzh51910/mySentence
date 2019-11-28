@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
 // import 'antd-mobile/dist/antd-mobile.css';
+import { my } from './Api';
 //引入组件
 import Home from '~/Home';
 import Find from '~/Find';
