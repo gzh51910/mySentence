@@ -3,14 +3,16 @@ import React, { Component } from 'react';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { NavBar, Icon } from 'antd-mobile';
 // import 'antd-mobile/dist/antd-mobile.css';
+import { my } from './Api';
 //引入组件
 import Home from '~/Home';
-import Cart from '~/Cart';
+import discovery from '~/discovery';
 import Goods from '~/Goods';
 import List from '~/List';
 import Login from '~/Login';
 import Mine from '~/Mine';
 import Reg from '~/Reg';
+import './App.scss'
 //引入样式
 class App extends Component {
     state = {
@@ -23,10 +25,10 @@ class App extends Component {
                 icon: 'home'
             },
             {
-                name: 'Cart',
-                path: '/cart',
-                text: '购物车',
-                icon: 'home'
+                name: 'discovery',
+                path: '/discovery',
+                text: '发现',
+                icon: 'discovery'
             },
             {
                 name: 'List',
@@ -77,7 +79,18 @@ class App extends Component {
         //渲染页面，在里面再添加组件
         return (
             <div>
-                6666
+                <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/discovery" component={discovery} />
+                    <Route path="/goods:id" component={Goods} />
+                    <Route path="/list" component={List} />
+                    <Route path="/login" component={Login} />
+                    <Route path="/mine" component={Mine} />
+                    <Route path="/reg" component={Reg} />
+                    <Route path="/notfound" render={() => <div>404页面</div>} />
+                    <Redirect from="/" to="/home" exact />
+                    <Redirect to="notfound" />
+                </Switch>
             </div>
         )
     }
