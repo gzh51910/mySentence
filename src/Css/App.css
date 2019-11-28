@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  touch-action: none;
+}
+
+#tab-bar.demo {
+  display: flex;
+  flex-direction: column;
+}
+
+#tab-bar .demoName {
+  height: 40px;
+}
+
+#tab-bar .demo-preview-item .am-tab-bar {
+  background-color: white;
+}

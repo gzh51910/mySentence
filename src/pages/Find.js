@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-class List extends Component {
+class Cart extends Component {
     render() {
         return (
-            <div>列表页1</div>
+            <div>发现</div>
         )
     }
 }
-export default List;
+export default Cart;
