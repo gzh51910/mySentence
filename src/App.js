@@ -78,7 +78,7 @@ class App extends Component {
                     <Redirect from="/" to="/home" exact />
                     <Redirect to="notfound" />
                 </Switch>
-                <div>
+                <div style={this.state.fullScreen ? { position: 'fixed', width: '100%', bottom: 0 } : { height: 400 }}>
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#33A3F4"
