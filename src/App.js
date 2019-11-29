@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //引入路由
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
 import { my } from './Api';
 //引入组件
-import Home from '~/Home';
-import Find from '~/Find';
-import Goods from '~/Goods';
-import Add from '~/Add';
-import Account from '~/account';
-import Mine from '~/Mine';
+import Home from "~/Home";
+import Find from "~/Find";
+import Goods from "~/Goods";
+import Add from "~/Add";
+import Account from "~/account";
+import Mine from "~/Mine";
 //引入样式
-import './Css/App.css'
+import "./Css/App.css";
 class App extends Component {
     state = {
         selectedTab: '/home',
@@ -19,38 +19,38 @@ class App extends Component {
         fullScreen: true,
         menu: [
             {
-                name: 'Home',
-                path: '/home',
-                text: '推荐',
-                icon: 'home'
+                name: "Home",
+                path: "/home",
+                text: "推荐",
+                icon: "home"
             },
             {
-                name: 'Find',
-                path: '/find',
-                text: '发现',
-                icon: 'home'
+                name: "Find",
+                path: "/find",
+                text: "发现",
+                icon: "home"
             },
             {
-                name: 'Add',
-                path: '/add',
-                text: '+',
-                icon: 'home'
+                name: "Add",
+                path: "/add",
+                text: "+",
+                icon: "home"
             },
             {
-                name: 'Account',
-                path: '/account',
-                text: '账号',
-                icon: 'home'
+                name: "Account",
+                path: "/account",
+                text: "账号",
+                icon: "home"
             },
             {
-                name: 'Mine',
-                path: '/mine',
-                text: '我的',
-                icon: 'home'
-            },
-        ],
-    }
-    goto = (path) => {
+                name: "Mine",
+                path: "/mine",
+                text: "我的",
+                icon: "home"
+            }
+        ]
+    };
+    goto = path => {
         let { history } = this.props;
         history.push(path)
     }
@@ -113,12 +113,10 @@ class App extends Component {
                             >
                             </TabBar.Item>
                         })}
-
-
                     </TabBar>
                 </div>
             </div>
-        )
+        );
     }
 }
 App = withRouter(App);
