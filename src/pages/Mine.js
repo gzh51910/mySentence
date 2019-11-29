@@ -9,6 +9,8 @@ class Mine extends Component {
         }
     }
     render() {
+        console.log(111);
+        
         // console.log("13", this.props);
         // console.log(this.bb);
 
