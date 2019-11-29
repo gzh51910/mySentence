@@ -1,65 +1,97 @@
 import React, { Component } from "react";
 import Dynamic from "./dynamic";
-import { Tabs} from "antd-mobile";
+import { Tabs, SearchBar } from "antd-mobile";
+import '../App.scss'
 class Find extends Component {
     state = {
-        ddd: "动态",
-        path: "/home",
+        title: "最新",
+        name: "newest",
         menu: [
             {
-                name: "Home",
+                name: "newest",
                 path: "/home",
-                title: "动态"
-            },
-            {
-                name: "discovery",
-                path: "/discovery",
-                title: "推荐"
-            },
-            {
-                name: "List",
-                path: "/list",
-                title: "图文"
-            },
-            {
-                name: "Login",
-                path: "/login",
                 title: "最新"
             },
             {
-                name: "Mine",
-                path: "/mine",
+                name: "hot",
+                path: "/login",
                 title: "热门"
             },
             {
-                name: "Reg",
+                name: "original",
+                path: "/mine",
+                title: "原创"
+            },
+            {
+                name: "emotion",
                 path: "/reg",
                 title: "情感"
             },
             {
-                name: "Reg",
+                name: "ana",
                 path: "/reg",
-                title: "搞笑"
+                title: "语录"
             },
             {
-                name: "Reg",
-                path: "/reg",
+                name: "live",
+                path: "/discovery",
                 title: "生活"
+            },
+            {
+                name: "love",
+                path: "/list",
+                title: "歌词"
+            },
+
+            {
+                name: "jottings",
+                path: "/reg",
+                title: "随笔"
+            },
+            {
+                name: "poetry",
+                path: "/reg",
+                title: "诗词"
             }
         ]
     };
 
     highlight = tab => {
         this.setState({
-            ddd: tab.title,
-            path: tab.path
+            title: tab.title,
+            name: tab.name
         });
     };
+    uuu = value => {
+        console.log(value);
+    };
     render() {
-        console.log(6666);
         return (
-            <div>
-
+            <div style={{height:'80%'}}>
+                <div
+                    style={{
+                        backgroundColor: "#fb7299",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-around"
+                    }}
+                >
+                    <span
+                        style={{
+                            color: "#fff",
+                            fontSize: 16,
+                            fontWeight: "inherit"
+                        }}
+                    >
+                        发现
+                    </span>
+                    <SearchBar
+                        placeholder="搜你想要搜的"
+                        maxLength={8}
+                        cancelText="搜索"
+                        onChange={this.uuu}
+                    />
+                </div>
                 <Tabs
                     tabs={this.state.menu}
                     tabBarUnderlineStyle={{ borderColor: "#ccc" }}
@@ -71,8 +103,8 @@ class Find extends Component {
                         />
                     )}
                 ></Tabs>
-  
-                <Dynamic name={this.state.ddd} path={this.state.path} />
+
+                <Dynamic title={this.state.title} name={this.state.name} />
             </div>
         );
     }
