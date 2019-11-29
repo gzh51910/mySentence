@@ -103,6 +103,7 @@ class Find extends Component {
                         />
                     )}
                 ></Tabs>
+
                 <Dynamic title={this.state.title} name={this.state.name} />
             </div>
         );

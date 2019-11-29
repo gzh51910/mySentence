@@ -3,9 +3,37 @@ body {
   margin: 0;
   padding: 0;
   touch-action: none;
-  width: 100%;
   height: 100%;
 }
-#app{
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
   height: 100%;
 }
+
+.content {
+  height: 100%;
+}
+
+#tab-bar.demo {
+  display: flex;
+  flex-direction: column;
+}
+
+#tab-bar .demoName {
+  height: 40px;
+}
+
+#tab-bar .demo-preview-item .am-tab-bar {
+  background-color: white;
+}
+
+/* .am-tabs-tab-bar-wrap {
+  width: 100% !important;
+  position: fixed !important;
+  bottom: 0 !important;
+} */
