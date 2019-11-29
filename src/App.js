@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 //引入路由
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import { TabBar } from 'antd-mobile';
-// import 'antd-mobile/dist/antd-mobile.css';
 import { my } from './Api';
 //引入组件
 import Home from '~/Home';
@@ -14,27 +13,8 @@ import Mine from '~/Mine';
 //引入样式
 import './Css/App.css'
 class App extends Component {
-    renderContent(pageText) {
-        return (
-            <div>
-                <Switch>
-                    <Route path="/home" component={Home} />
-                    <Route path="/find" component={Find} />
-                    <Route path="/goods:id" component={Goods} />
-                    <Route path="/add" component={Add} />
-                    <Route path="/account" component={Account} />
-                    <Route path="/mine" component={Mine} />
-                    //Redirect 重定向匹配   render 自身组件，不需要重新写也不需要引入
-                    <Route path="/notfound" render={() => <div>404页面</div>} />
-                    //exact 精确匹配到/的时候才跳转
-                    <Redirect from="/" to="/home" exact />
-                    <Redirect to="notfound" />
-                </Switch>
-            </div>
-        );
-    }
     state = {
-        selectedTab: 'home',
+        selectedTab: '/home',
         hidden: false,
         fullScreen: true,
         menu: [
@@ -72,27 +52,32 @@ class App extends Component {
     }
     goto = (path) => {
         let { history } = this.props;
-        // this.setState({ selectedTab: path })
         history.push(path)
     }
     componentDidMount() {
+        let bb = this.props.location.pathname;
+        if (bb == '/') {
+            bb = '/home'
+        }
         this.setState({
-            selectedTab: this.props.location.pathname
+            selectedTab: bb,
         })
     }
-    // shouldComponentUpdate(nextProps) {
-    //     this.state.houtui = nextProps.location.pathname;
-    //     // console.log(this.state.houtui);
-    //     return true
-
-    // }
-    // componentDidUpdate(prevProps) {
-    //     this.state.houtui = this.props.location.pathname;
-    // }
     render() {
         //渲染页面，在里面再添加组件
         return (
             <div>
+                <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/find" component={Find} />
+                    <Route path="/goods:id" component={Goods} />
+                    <Route path="/add" component={Add} />
+                    <Route path="/account" component={Account} />
+                    <Route path="/mine" component={Mine} />
+                    <Route path="/notfound" render={() => <div>404页面</div>} />
+                    <Redirect from="/" to="/home" exact />
+                    <Redirect to="notfound" />
+                </Switch>
                 <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
                     <TabBar
                         unselectedTintColor="#949494"
@@ -120,34 +105,18 @@ class App extends Component {
                                 }
                                 selected={this.state.selectedTab === item.path}
                                 onPress={() => {
-
                                     this.goto(item.path)
                                     this.setState({
                                         selectedTab: item.path,
                                     });
                                 }}
                             >
-                                {this.renderContent(item.text)}
                             </TabBar.Item>
                         })}
 
 
                     </TabBar>
                 </div>
-                {/* <Switch>
-                    <Route path="/home" component={Home} />
-                    <Route path="/cart" component={Cart} />
-                    <Route path="/goods:id" component={Goods} />
-                    <Route path="/list" component={List} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/mine" component={Mine} />
-                    <Route path="/reg" component={Reg} />
-                    //Redirect 重定向匹配   render 自身组件，不需要重新写也不需要引入
-                    <Route path="/notfound" render={() => <div>404页面</div>} />
-                    //exact 精确匹配到/的时候才跳转
-                    <Redirect from="/" to="/home" exact />
-                    <Redirect to="notfound" />
-                </Switch> */}
             </div>
         )
     }
