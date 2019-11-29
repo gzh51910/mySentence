@@ -70,6 +70,7 @@ class Find extends Component {
                         />
                     )}
                 ></Tabs>
+
                 <Dynamic name={this.state.ddd} path={this.state.path} />
             </div>
         );
