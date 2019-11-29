@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //引入路由
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
-import { TabBar } from 'antd-mobile';
+import { TabBar, NavBar, Icon } from 'antd-mobile';
 import { my } from './Api';
 //引入组件
 import Home from "~/Home";
@@ -66,7 +66,7 @@ class App extends Component {
     render() {
         //渲染页面，在里面再添加组件
         return (
-            <div>
+            <div className="content">
                 <Switch>
                     <Route path="/home" component={Home} />
                     <Route path="/find" component={Find} />
@@ -78,7 +78,7 @@ class App extends Component {
                     <Redirect from="/" to="/home" exact />
                     <Redirect to="notfound" />
                 </Switch>
-                <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+                <div>
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#33A3F4"
@@ -115,7 +115,7 @@ class App extends Component {
                         })}
                     </TabBar>
                 </div>
-            </div>
+            </div >
         );
     }
 }

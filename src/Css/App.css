@@ -3,6 +3,20 @@ body {
   margin: 0;
   padding: 0;
   touch-action: none;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100%;
+}
+
+.content {
+  height: 100%;
 }
 
 #tab-bar.demo {
@@ -16,4 +30,24 @@ body {
 
 #tab-bar .demo-preview-item .am-tab-bar {
   background-color: white;
+}
+
+.am-tabs-tab-bar-wrap {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.dynamic-main {
+  display: flex;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.dynamic-main .dynamic-main-left {
+  width: 10%;
+}
+
+.dynamic-main-rigth {
+  width: 90%;
 }
