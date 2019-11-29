@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Dynamic from "./dynamic";
-import { Tabs, WhiteSpace } from "antd-mobile";
+import { Tabs} from "antd-mobile";
 class Find extends Component {
     state = {
         ddd: "动态",
@@ -59,7 +59,7 @@ class Find extends Component {
         console.log(6666);
         return (
             <div>
-                <WhiteSpace />
+
                 <Tabs
                     tabs={this.state.menu}
                     tabBarUnderlineStyle={{ borderColor: "#ccc" }}
@@ -71,7 +71,7 @@ class Find extends Component {
                         />
                     )}
                 ></Tabs>
-                <WhiteSpace />
+  
                 <Dynamic name={this.state.ddd} path={this.state.path} />
             </div>
         );
