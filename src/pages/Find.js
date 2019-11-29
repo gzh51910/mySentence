@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Dynamic from "./dynamic";
 import { Tabs, SearchBar } from "antd-mobile";
-import '../App.scss'
+import '../Css/Find.css'
 class Find extends Component {
     state = {
         title: "最新",
