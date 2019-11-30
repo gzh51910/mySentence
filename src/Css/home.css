@@ -40,7 +40,7 @@
     height: 40%;
 }
 
-.ban {
-    /* background: red; */
-    transform: translate3d(-2982.2px, 0px, 0px) !important;
+.slider-list li:last-child {
+    background: red;
+    display: none !important;
 }
