@@ -1,5 +1,6 @@
 .home {
     height: 100%;
+
 }
 
 .top {
@@ -15,18 +16,16 @@
     height: 100%;
     line-height: 250%;
     color: #fff;
+    margin-left: 4%;
 }
 
 .top i {
     float: right;
     height: 100%;
-    line-height: 250%;
-}
-
-.space-carousel {
-    padding: 16px;
-
-    overflow: hidden;
+    line-height: 200%;
+    margin-right: 4%;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 .mid {
@@ -40,7 +39,15 @@
     height: 40%;
 }
 
-.slider-list li:last-child {
+/* .slider-list {
+    transform: translate3d(-2705.3px, 0px, 0px) !important;
+} */
+
+/* .slider-list li:last-child {
     background: red;
     display: none !important;
-}
+} */
+
+/* .am-pull-to-refresh-down {
+    position: relative;
+} */
