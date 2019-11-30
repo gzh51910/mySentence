@@ -73,7 +73,8 @@ class Find extends Component {
                         backgroundColor: "#fb7299",
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "space-around"
+                        justifyContent: "space-around",
+                        height:'7%'
                     }}
                 >
                     <span
