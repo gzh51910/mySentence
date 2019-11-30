@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import '../Css/Find.css'
+import '../Css/find.css'
 class dynamic extends Component {
     render() {
         console.log(this.props);

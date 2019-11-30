@@ -8,10 +8,11 @@ import Home from "~/Home";
 import Find from "~/Find";
 import Goods from "~/Goods";
 import Add from "~/Add";
-import Account from "~/account";
+import Account from "~/Account";
 import Mine from "~/Mine";
 //引入样式
 import "./Css/App.css";
+import "./Css/Moren.css"
 class App extends Component {
     state = {
         selectedTab: '/home',

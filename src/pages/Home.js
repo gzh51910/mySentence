@@ -40,8 +40,8 @@ class Home extends Component {
 
                             if (to == "9") {
                                 // var box = document.getElementsByClassName("box");  box[0].value; 
-                                var submitObj = document.getElementsByClassName('slider-list')[0]
-                                submitObj.setAttribute('.bb', 'background: red')
+                                // var submitObj = document.getElementsByClassName('slider-list')[0]
+                                // submitObj.setAttribute('.bb', 'background: red')
                                 // // document.getElementsByClassName('slider-list')[0].classList.add("ban");
                                 // submitObj.style.cssText += "transform: translate3d(0px, 0px, 0px)!important;"
                             }

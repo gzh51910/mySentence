@@ -1,28 +1,97 @@
 .dynamic-find {
-  width: 100%;
-  max-height: 80%;
+    width: 100%;
+    max-height: 80%;
 }
 
 .dynamic-find .dynamic-main {
-  display: flex;
-  padding: 15px;
-  border-bottom: 1px solid #ccc;
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
 }
 
 .dynamic-find .dynamic-main .dynamic-main-left {
-  width: 10%;
+    width: 10%;
 }
 
 .dynamic-find .dynamic-main .dynamic-main-rigth {
-  width: 90%;
+    width: 90%;
 }
 
 .am-search {
-  width: 300px;
-  background: #fb7299;
+    width: 300px;
+    background: #fb7299;
 }
 
 .am-search-cancel {
-  color: #fff;
-  margin-right: 0px !important;
+    color: #fff;
+    margin-right: 0px !important;
+}
+.am-tabs-top {
+    height: 9%;
+}
+.account-logo {
+    line-height: 44px;
+    text-align: center;
+    background: #fb7299;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+.account-ul {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    height: 15%;
+    padding: 10px 0;
+}
+.account-ul li {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.account-ul li span {
+    width: 70%;
+    height: 70%;
+    background: #fb7299;
+    display: block;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.account-ul p {
+    font-size: 14px;
+}
+.account-ul li span i {
+    line-height: 100%;
+    color: #fff;
+    font-size: 24px;
+}
+.am-list-item-middle {
+    padding-left: 35px !important;
+}
+.am-list-line-multiple {
+    border-bottom: 1px solid #ccc;
+}
+.am-list-content span {
+    font-size: 12px;
+    font-weight: bold;
+}
+.am-list-content i {
+    position: absolute;
+    top: 12px;
+    left: -28px;
+    font-size: 18px;
+    z-index: 9999;
+}
+.am-list-line-multiple {
+    padding: 0 !important;
+}
+.am-list-line {
+    overflow: unset !important;
 }
