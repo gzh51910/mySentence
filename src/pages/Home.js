@@ -6,16 +6,16 @@ import { my } from '../Api';
 @withToken
 class Home extends Component {
     state = {
-        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
         imgHeight: 500,
     }
-    async componentDidMount() {
-        let data = await my.get("goods/id", {
-            id: '5ddf97497b21000060000f52'
-        })
-        console.log(data);
+    // async componentDidMount() {
+    //     let data = await my.get("goods/id", {
+    //         id: '5ddf97497b21000060000f52'
+    //     })
+    //     console.log(data);
 
-    }
+    // }
     componentDidUpdate() {
 
         // console.log(111);
@@ -39,17 +39,16 @@ class Home extends Component {
                             // console.log(from, to);
 
                             if (to == "9") {
-                                // var submitObj = document.getElementsByClassName('slider-list')[0]
-                                // console.log(submitObj.style.transform);
-                                // document.getElementsByClassName('slider-list')[0].classList.add("ban");
-                                // submitObj.style = "transform: translate3d(-0.2px, 0px, 0px)!important;"
+                                // var box = document.getElementsByClassName("box");  box[0].value; 
+                                var submitObj = document.getElementsByClassName('slider-list')[0]
+                                submitObj.setAttribute('.bb', 'background: red')
+                                // // document.getElementsByClassName('slider-list')[0].classList.add("ban");
+                                // submitObj.style.cssText += "transform: translate3d(0px, 0px, 0px)!important;"
                             }
                         }
 
                         }
                         afterChange={index => this.setState({ slideIndex: index },
-                            console.log(1)
-
                         )
                         }
                     >
@@ -68,16 +67,6 @@ class Home extends Component {
                                 }}
                             >
                                 <img src={`https://zos.alipayobjects.com/rmsportal/IJOtIlfsYdTyaDTRVrLI.png`} />
-                                {/* <img
-                                    src={`https://zos.alipayobjects.com/rmsportal/IJOtIlfsYdTyaDTRVrLI.png`}
-                                    alt=""
-                                    style={{ width: '100%', verticalAlign: 'top' }}
-                                    onLoad={() => {
-                                        window.dispatchEvent(new Event('resize'));
-                                        this.setState({ imgHeight: 'auto' });
-                                    }}
-                                /> */}
-
                                 <div>{val}</div>
                             </div>
                         ))}
