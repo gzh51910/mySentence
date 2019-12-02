@@ -1,25 +1,26 @@
 .home {
     height: 100%;
-
+    background: #fff;
 }
 
-.top {
+.home .top {
     height: 6%;
     overflow: hidden;
     background-color: #fb7299;
-    /* position: fixed; */
     width: 100%;
 }
 
-.top h3 {
+.home .top h3 {
     float: left;
     height: 100%;
     line-height: 250%;
     color: #fff;
     margin-left: 4%;
+    font-size: 1.1rem;
+    font-weight: 900;
 }
 
-.top i {
+.home .top i {
     float: right;
     height: 100%;
     line-height: 200%;
@@ -28,25 +29,24 @@
     color: #fff;
 }
 
-.mid {
+.home .mid {
     background: #fff;
-    height: 100%;
     padding-top: 12%;
 }
 
-.mid img {
+.home .mid img {
     width: 100%;
     height: 40%;
 }
 
-.mid .char {
+.home .mid .char {
     line-height: 200%;
     padding-top: 10%;
     width: 80%;
     margin: auto;
 }
 
-.btm {
+.home .btm {
     display: flex;
     width: 80%;
     position: absolute;
@@ -55,11 +55,11 @@
     transform: translate(-50%, 0%);
 }
 
-.btm i {
+.home .btm i {
     font-size: 1.1rem;
     flex: 1;
 }
 
-.btm i span {
+.home .btm i span {
     font-size: 0.7rem;
 }

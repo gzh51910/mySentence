@@ -11,6 +11,8 @@ class Home extends Component {
         imgHeight: 500,
     }
     async componentDidMount() {
+        this.props.bb("hhhhhh")
+
         let { data: { data } } = await my.get("goods/name", {
             name: 10,
             condition: "random"
@@ -25,7 +27,7 @@ class Home extends Component {
             return (
                 <div className="home">
                     <div className="top subside">
-                        <h3>精选投稿</h3>
+                        <h3 onClick={() => this.props.bb("哈哈哈")}>精选投稿</h3>
                         <i className="iconfont icon-diqiu1" onClick={() => this.props.history.push('/choiceness')
                         }></i>
                     </div>
@@ -47,7 +49,7 @@ class Home extends Component {
 
                                 < div
                                     key={val}
-                                    onClick={() => this.props.history.push(`/Goods/${val._id}`)
+                                    onClick={() => this.props.history.push(`/goods/${val._id}`)
                                     }
                                     style={{
                                         display: 'block',
