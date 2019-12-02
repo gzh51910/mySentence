@@ -6,6 +6,8 @@ class dynamic extends Component {
         data: []
     };
     async componentDidMount() {
+        console.log("1", this);
+
         let {
             data: { data }
         } = await my.get("/goods/name", {
@@ -17,17 +19,17 @@ class dynamic extends Component {
             data: data
         });
         console.log(this.state);
-        
+
     }
 
     getdata = (name) => {
         console.log(name);
         console.log(1);
-        
+
     }
 
     render() {
-        { this.getdata.bind(this, this.props.title)}
+        { this.getdata.bind(this, this.props.title) }
         if (this.state.data.length != 0) {
             return (
                 <div className="dynamic-find">
@@ -37,14 +39,15 @@ class dynamic extends Component {
                                 <p>{item.content}</p>
                             </div>
                         );
-                    })}
+                    })
+                    }
                     {/* <div className="dynamic-main-left">
                             {this.props.title}
                         </div>
                         <div className="dynamic-main-right">
                             {this.props.name}
                         </div> */}
-                </div>
+                </div >
             );
         } else {
             return <div></div>;

@@ -4,8 +4,8 @@ export function withToken(InnerComponent) {
         state = {
             Authorization: '',
             data: '1',
-            bb() {
-                console.log(123);
+            bb(h) {
+                this.props.history.push(h);
             }
         }
 

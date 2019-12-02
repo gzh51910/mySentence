@@ -11,15 +11,13 @@ class Home extends Component {
         imgHeight: 500,
     }
     async componentDidMount() {
-        console.log(this.props);
-
         let { data: { data } } = await my.get("goods/name", {
             name: 10,
             condition: "random"
         })
         this.setState({
-            data,
-        })
+            data
+        });
     }
 
     render() {
@@ -45,15 +43,18 @@ class Home extends Component {
                             }
                         >
                             {this.state.data.map((val, index) => (
+                                // console.log(val._id),
+
                                 < div
                                     key={val}
-                                    href="###"
+                                    onClick={() => this.props.history.push(`/Goods/${val._id}`)
+                                    }
                                     style={{
                                         display: 'block',
                                         position: 'relative',
                                         top: this.state.slideIndex === index ? -15 : 0,
                                         height: this.state.imgHeight,
-                                        boxShadow: ' 0px 5px 20px 5px rgba(0, 0, 0, 0.2)',
+                                        boxShadow: ' 0px 0px 0px 2px rgba(0, 0, 0, 0.2)',
                                         borderRadius: "5%",
                                         overflow: "hidden"
                                     }}
