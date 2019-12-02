@@ -71,7 +71,7 @@ class App extends Component {
     render() {
         //渲染页面，在里面再添加组件
         let pd = this.props.location.pathname;
-        if (pd == "/choiceness" || RegExp(/goods/).test(pd) || pd == "/collect" ) {
+        if (pd == "/choiceness" || RegExp(/goods/).test(pd) || pd == "/collect") {
             this.state.hidden = true;
         } else {
             this.state.hidden = false;

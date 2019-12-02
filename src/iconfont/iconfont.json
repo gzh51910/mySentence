@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "46671",
+      "name": "后退",
+      "font_class": "houtui",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
       "icon_id": "55122",
       "name": "home",
       "font_class": "home",
@@ -125,6 +132,13 @@
       "unicode_decimal": 58954
     },
     {
+      "icon_id": "6119022",
+      "name": "三点",
+      "font_class": "more",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
       "icon_id": "6233720",
       "name": "地球",
       "font_class": "diqiu1",
@@ -179,6 +193,27 @@
       "font_class": "guanyu",
       "unicode": "e81c",
       "unicode_decimal": 59420
+    },
+    {
+      "icon_id": "9921769",
+      "name": "点赞",
+      "font_class": "zanpress",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "10281958",
+      "name": "刷新",
+      "font_class": "f14",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "10400784",
+      "name": "资讯空白头像",
+      "font_class": "zixunkongbaitouxiang",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
     },
     {
       "icon_id": "10749304",

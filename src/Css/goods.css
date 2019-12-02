@@ -1,0 +1,272 @@
+.goods {
+  height: 100%;
+}
+
+.goods .top {
+  height: 6%;
+  overflow: hidden;
+  background-color: #fb7299;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.goods .top h3 {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.goods .top i {
+  font-size: 1.4rem;
+  line-height: 150%;
+  color: #fff;
+}
+
+.goods .top .icon-houtui {
+  float: left;
+  padding-left: 3%;
+}
+
+.goods .top .icon-more {
+  float: right;
+  padding-right: 3%;
+  padding-top: 1%;
+}
+
+.goods .top .icon-f14 {
+  float: right;
+  padding-right: 4%;
+  padding-top: 1%;
+}
+
+.goods .mid {
+  height: 94%;
+  margin-top: 10%;
+}
+
+.goods .mid .con {
+  height: 50%;
+  padding: 5%;
+}
+
+.goods .mid .con .img {
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 0px 2px;
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.goods .mid .con .img img {
+  height: 70%;
+  width: 100%;
+}
+
+.goods .mid .con .img div {
+  padding: 8%;
+  height: 30%;
+  width: 100%;
+}
+
+.goods .mid .con .img div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.goods .mid .mes {
+  font-size: 1.5rem;
+  color: #888;
+  padding: 0 5%;
+  height: 5%;
+}
+
+.goods .mid .mes > i:not(:first-child) {
+  padding-left: 8%;
+}
+
+.goods .mid .mes i {
+  float: left;
+}
+
+.goods .mid .mes i span {
+  font-size: 0.8rem;
+}
+
+.goods .mid .mes > span {
+  font-size: 0.2rem;
+  float: right;
+  line-height: 1rem;
+}
+
+.goods .mid .mes > span span {
+  color: #44afd9;
+}
+
+.goods .mid .kong {
+  height: 2%;
+  background: #f0f0f0;
+}
+
+.goods .mid .sx {
+  height: 10%;
+}
+
+.goods .mid .sx .an {
+  color: #666666;
+  height: 50%;
+  border-bottom: 0.1rem solid #dddddd;
+}
+
+.goods .mid .sx .an > span {
+  float: left;
+  line-height: 200%;
+  margin-left: 5%;
+}
+
+.goods .mid .sx .an a {
+  width: 40%;
+  margin: auto;
+  float: left;
+  height: 75%;
+  line-height: 190%;
+  margin-top: 1%;
+  margin-left: 10%;
+}
+
+.goods .mid .sx .xx {
+  height: 50%;
+  color: #666666;
+  padding-top: 1%;
+}
+
+.goods .mid .sx .xx > span {
+  float: left;
+  line-height: 180%;
+  margin-left: 5%;
+}
+
+.goods .mid .sx .xx .tp i:first-child {
+  font-size: 1.5rem;
+  float: left;
+  padding-left: 10%;
+}
+
+.goods .mid .sx .xx .tp i:nth-child(3) {
+  font-size: 1.5rem;
+  float: left;
+  padding-left: 20%;
+}
+
+.goods .mid .sx .xx .tp span {
+  float: left;
+  line-height: 180%;
+  margin-left: 3%;
+}
+
+.goods .mid .discuss {
+  font-size: 1rem;
+  width: 100%;
+  float: left;
+  padding-bottom: 10%;
+}
+
+.goods .mid .discuss ._top {
+  border-bottom: 0.1rem solid #dddddd;
+  padding: 0 5%;
+  line-height: 180%;
+  float: left;
+  width: 100%;
+}
+
+.goods .mid .discuss ._top .left {
+  float: left;
+}
+
+.goods .mid .discuss ._top .right {
+  float: right;
+}
+
+.goods .mid .discuss .cont li {
+  padding-top: 3%;
+  float: left;
+  width: 100%;
+  padding-left: 4%;
+}
+
+.goods .mid .discuss .cont li img {
+  overflow: hidden;
+  width: 12%;
+  border-radius: 100%;
+  float: left;
+}
+
+.goods .mid .discuss .cont li .left {
+  float: left;
+  padding-left: 2%;
+  width: 88%;
+  border-bottom: 0.1rem solid #dddddd;
+  padding: 0 5%;
+}
+
+.goods .mid .discuss .cont li .left P {
+  color: #5f5f5f;
+  font-size: 0.5rem;
+}
+
+.goods .mid .discuss .cont li .left h5 {
+  padding: 5% 0;
+  color: #2b2a2a;
+}
+
+.goods .mid .discuss .cont li .left div {
+  float: right;
+  width: 13%;
+}
+
+.goods .mid .discuss .cont li .left div span {
+  font-size: 0.5rem;
+  padding-right: 20%;
+  color: #5f5f5f;
+}
+
+.goods .mid .down {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 6%;
+}
+
+.goods .mid .down .nr {
+  width: 100%;
+}
+
+.goods .mid .down .searchx {
+  width: 100%;
+  background: #f5f5f9;
+}
+
+.goods .my-drawer {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.goods .my-drawer .am-drawer-sidebar {
+  background-color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.goods .my-drawer .am-drawer-sidebar .am-list {
+  width: 300px;
+  padding: 0;
+}
