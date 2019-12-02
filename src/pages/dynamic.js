@@ -20,7 +20,14 @@ class dynamic extends Component {
         
     }
 
+    getdata = (name) => {
+        console.log(name);
+        console.log(1);
+        
+    }
+
     render() {
+        { this.getdata.bind(this, this.props.title)}
         if (this.state.data.length != 0) {
             return (
                 <div className="dynamic-find">
