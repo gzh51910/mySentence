@@ -28,6 +28,7 @@
 }
 .am-tabs-top {
     height: 9%;
+    /* position: absolute; */
 }
 .account-logo {
     line-height: 250%;

@@ -13,6 +13,7 @@ import Add from "~/Add";
 import Account from "~/Account";
 import Mine from "~/Mine";
 import Choiceness from "~/Choiceness";
+import collect from "~/collect";
 //引入样式
 import "./Css/App.css";
 import "./Css/Moren.css"
@@ -70,7 +71,7 @@ class App extends Component {
     render() {
         //渲染页面，在里面再添加组件
         let pd = this.props.location.pathname;
-        if (pd == "/choiceness" || RegExp(/goods/).test(pd)) {
+        if (pd == "/choiceness" || RegExp(/goods/).test(pd) || pd == "/collect" ) {
             this.state.hidden = true;
         } else {
             this.state.hidden = false;
@@ -79,6 +80,7 @@ class App extends Component {
             <div className="content">
                 <Switch>
                     <Route path="/home" component={Home} />
+                    <Route path="/collect" component={collect} />
                     <Route path="/find" component={Find} />
                     <Route path="/reg" component={reg} />
                     <Route path="/login" component={login} />

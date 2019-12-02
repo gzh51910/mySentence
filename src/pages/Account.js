@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List} from "antd-mobile";
+import { List } from "antd-mobile";
 import "../Css/find.css";
 class Account extends Component {
     state = {
@@ -28,21 +28,28 @@ class Account extends Component {
         sentence: [
             {
                 title: "发布的句子",
-                icon: "icon-pan_icon"
+                icon: "icon-pan_icon",
+                Account: "issue"
             },
             {
                 title: "喜欢的句子",
-                icon: "icon-shoucang4"
+                icon: "icon-shoucang4",
+                Account: "love"
             },
             {
                 title: "收藏的句子",
-                icon: "icon-shoucang"
+                icon: "icon-shoucang",
+                Account: "collect"
             },
             {
                 title: "我的标签",
-                icon: "icon-ziyuan"
+                icon: "icon-ziyuan",
+                Account: "label"
             }
         ]
+    };
+    goto = name => {
+        this.props.history.push(`/collect?name=${name}`);
     };
     render() {
         return (
@@ -67,7 +74,7 @@ class Account extends Component {
                                 arrow="horizontal"
                                 multipleLine
                                 key={item.icon}
-                                onClick={() => {}}
+                                onClick={this.goto.bind(this, item.Account)}
                             >
                                 <span>{item.title}</span>
                                 <i className={`iconfont ${item.icon}`}></i>
