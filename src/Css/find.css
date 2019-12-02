@@ -1,6 +1,7 @@
 .dynamic-find {
     width: 100%;
-    max-height: 80%;
+    height: 100%;
+    overflow: auto;
 }
 
 .dynamic-find .dynamic-main {
@@ -18,7 +19,7 @@
 }
 
 .am-search {
-    width: 300px;
+    width: 85%;
     background: #fb7299;
 }
 
@@ -30,7 +31,8 @@
     height: 9%;
 }
 .account-logo {
-    line-height: 44px;
+    line-height: 250%;
+    height: 6%;
     text-align: center;
     background: #fb7299;
     color: #fff;
