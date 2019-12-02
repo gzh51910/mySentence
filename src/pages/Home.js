@@ -7,68 +7,74 @@ import { my } from '../Api';
 
 class Home extends Component {
     state = {
-        data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        data: "",
         imgHeight: 500,
     }
-    // async componentDidMount() {
-    //     let data = await my.get("goods/id", {
-    //         id: '5ddf97497b21000060000f52'
-    //     })
-    //     console.log(data);
+    async componentDidMount() {
+        console.log(this.props);
 
-    // }
+        let { data: { data } } = await my.get("goods/name", {
+            name: 10,
+            condition: "random"
+        })
+        this.setState({
+            data,
+        })
+    }
+
     render() {
-        return (
-            <div className="home">
-                <div className="top subside">
-                    <h3>精选投稿</h3>
-                    <i className="iconfont icon-diqiu1"></i>
-                </div>
-                <div className="mid">
-                    <Carousel className="space-carousel"
-                        frameOverflow="visible"
-                        cellSpacing={20}
-                        slideWidth={0.8}
-                        dots={false}
-                        beforeChange={(from, to) => {
-                            // console.log(1);
-
-                            if (to == "9") {
-                                // var submitObj = document.getElementsByClassName('slider-list')[0]
-                                // // // document.getElementsByClassName('slider-list')[0].classList.add("ban");
-                                // submitObj.style.cssText += "transform: translate3d(0px, 0px, 0px)!important;"
+        if (this.state.data) {
+            return (
+                <div className="home">
+                    <div className="top subside">
+                        <h3>精选投稿</h3>
+                        <i className="iconfont icon-diqiu1" onClick={() => this.props.history.push('/choiceness')
+                        }></i>
+                    </div>
+                    <div className="mid">
+                        <Carousel className="space-carousel"
+                            frameOverflow="visible"
+                            cellSpacing={20}
+                            slideWidth={0.8}
+                            dots={false}
+                            beforeChange={(from, to) => {
                             }
-                        }
 
-                        }
-                        afterChange={index => this.setState({ slideIndex: index },
-                            console.log(1)
-
-                        )
-                        }
-                    >
-                        {this.state.data.map((val, index) => (
-                            <div
-                                key={val}
-                                href="###"
-                                style={{
-                                    display: 'block',
-                                    position: 'relative',
-                                    top: this.state.slideIndex === index ? -15 : 0,
-                                    height: this.state.imgHeight,
-                                    boxShadow: ' 0px 5px 20px 5px rgba(0, 0, 0, 0.2)',
-                                    borderRadius: "5%",
-                                    overflow: "hidden"
-                                }}
-                            >
-                                <img src={`https://zos.alipayobjects.com/rmsportal/IJOtIlfsYdTyaDTRVrLI.png`} />
-                                <div>{val}</div>
-                            </div>
-                        ))}
-                    </Carousel>
-                </div>
-            </div >
-        )
+                            }
+                            afterChange={index => this.setState({ slideIndex: index })
+                            }
+                        >
+                            {this.state.data.map((val, index) => (
+                                < div
+                                    key={val}
+                                    href="###"
+                                    style={{
+                                        display: 'block',
+                                        position: 'relative',
+                                        top: this.state.slideIndex === index ? -15 : 0,
+                                        height: this.state.imgHeight,
+                                        boxShadow: ' 0px 5px 20px 5px rgba(0, 0, 0, 0.2)',
+                                        borderRadius: "5%",
+                                        overflow: "hidden"
+                                    }}
+                                >
+                                    <img src={val.cover} />
+                                    <p className="char">{val.content}</p>
+                                    <div className="btm">
+                                        <i className="iconfont icon-shoucang4"><span>{val.reputation}</span></i>
+                                        <i className="iconfont icon-xinxi"><span>3</span></i>
+                                        <i className="iconfont icon-shoucang"></i>
+                                        <i className="iconfont icon-zhuanfa"></i>
+                                    </div>
+                                </div>
+                            ))}
+                        </Carousel>
+                    </div>
+                </div >
+            )
+        } else {
+            return ''
+        }
     }
 }
 export default Home;

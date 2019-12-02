@@ -10,6 +10,7 @@ import Goods from "~/Goods";
 import Add from "~/Add";
 import Account from "~/Account";
 import Mine from "~/Mine";
+import Choiceness from "~/Choiceness";
 //引入样式
 import "./Css/App.css";
 import "./Css/Moren.css"
@@ -23,31 +24,31 @@ class App extends Component {
                 name: "Home",
                 path: "/home",
                 text: "推荐",
-                icon: "home"
+                icon: "icon-home"
             },
             {
                 name: "Find",
                 path: "/find",
                 text: "发现",
-                icon: "home"
+                icon: "icon-diqiu1"
             },
             {
                 name: "Add",
                 path: "/add",
-                text: "+",
-                icon: "home"
+                text: "",
+                icon: "icon-jiahao"
             },
             {
                 name: "Account",
                 path: "/account",
-                text: "账号",
-                icon: "home"
+                text: "我的",
+                icon: "icon-wenjianjia"
             },
             {
                 name: "Mine",
-                path: "/mine",
-                text: "我的",
-                icon: "home"
+                path: "/Mine",
+                text: "账号",
+                icon: "icon-zhanghao1"
             }
         ]
     };
@@ -66,6 +67,12 @@ class App extends Component {
     }
     render() {
         //渲染页面，在里面再添加组件
+        let pd = this.props.location.pathname;
+        if (pd == "/choiceness") {
+            this.state.hidden = true;
+        } else {
+            this.state.hidden = false;
+        }
         return (
             <div className="content">
                 <Switch>
@@ -75,6 +82,7 @@ class App extends Component {
                     <Route path="/add" component={Add} />
                     <Route path="/account" component={Account} />
                     <Route path="/mine" component={Mine} />
+                    <Route path="/choiceness" component={Choiceness} />
                     <Route path="/notfound" render={() => <div>404页面</div>} />
                     <Redirect from="/" to="/home" exact />
                     <Redirect to="notfound" />
@@ -82,7 +90,7 @@ class App extends Component {
                 <div style={this.state.fullScreen ? { position: 'fixed', width: '100%', bottom: 0 } : { height: 400 }}>
                     <TabBar
                         unselectedTintColor="#949494"
-                        tintColor="#33A3F4"
+                        tintColor="#fb7299"
                         barTintColor="white"
                         hidden={this.state.hidden}
                     >
@@ -90,17 +98,19 @@ class App extends Component {
                             return <TabBar.Item
                                 title={item.text}
                                 key={item.path}
-                                icon={<div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
-                                }}
+                                icon={<i className={`iconfont ${item.icon}`} style={
+                                    {
+                                        fontSize: "1.6rem"
+                                        // background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
+                                    }}
                                 />
                                 }
-                                selectedIcon={<div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
+                                selectedIcon={<i className={`iconfont ${item.icon}`} style={{
+                                    fontSize: "1.6rem",
+                                    color: "#fb7299",
+                                    transform: "scale(1.2)",
+                                    transition: "transform .18s"
+                                    // background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
                                 }}
                                 />
                                 }

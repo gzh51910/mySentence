@@ -37,3 +37,10 @@ body {
   position: fixed !important;
   bottom: 0 !important;
 } */
+
+.am-tab-bar-bar .am-tab-bar-tab:nth-child(3) i {
+  color: #fb7299 !important;
+  font-size: 2.3rem !important;
+  margin-top: 24% !important;
+  transform: none !important;
+}

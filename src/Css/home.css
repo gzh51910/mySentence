@@ -39,6 +39,31 @@
     height: 40%;
 }
 
+.mid .char {
+    line-height: 200%;
+    padding-top: 10%;
+    width: 80%;
+    margin: auto;
+}
+
+.btm {
+    display: flex;
+    width: 80%;
+    position: absolute;
+    bottom: 3%;
+    left: 55%;
+    transform: translate(-50%, 0%);
+}
+
+.btm i {
+    font-size: 1.1rem;
+    flex: 1;
+}
+
+.btm i span {
+    font-size: 0.7rem;
+}
+
 /* .slider-list {
     transform: translate3d(-2705.3px, 0px, 0px) !important;
 } */
