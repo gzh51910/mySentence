@@ -103,6 +103,7 @@ class ErrorInputExample extends React.Component {
       )
       console.log(res)
     }
+    this.props.history.push('/login')
   };
   render() {
     return (
@@ -118,6 +119,7 @@ class ErrorInputExample extends React.Component {
             onErrorClick={this.onErrorClick}
             onChange={this.onChange}
             value={this.state.value}
+            // key={this.state.value}
           >
             手机号码
           </InputItem>
