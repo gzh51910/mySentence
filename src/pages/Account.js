@@ -44,9 +44,6 @@ class Account extends Component {
             }
         ]
     };
-    onChange = key => {
-        console.log(key);
-    };
     render() {
         return (
             <div style={{ height: "93%" }}>

@@ -6,17 +6,16 @@
 
 .dynamic-find .dynamic-main {
     display: flex;
-    padding: 15px;
+    padding: 20px;
     border-bottom: 1px solid #ccc;
+    background: #fff;
+    min-height: 8rem;
+}
+.dynamic-find .dynamic-main p {
+    color: #000;
+    line-height: 20px;
 }
 
-.dynamic-find .dynamic-main .dynamic-main-left {
-    width: 10%;
-}
-
-.dynamic-find .dynamic-main .dynamic-main-rigth {
-    width: 90%;
-}
 
 .am-search {
     width: 85%;

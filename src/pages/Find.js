@@ -62,9 +62,6 @@ class Find extends Component {
             name: tab.name
         });
     };
-    uuu = value => {
-        console.log(value);
-    };
     render() {
         return (
             <div style={{ height: '80%' }}>

@@ -1,41 +1,68 @@
 import React, { Component } from "react";
+import {Link } from "react-router-dom";
 import "../Css/find.css";
 import { my } from "../Api";
 class dynamic extends Component {
     state = {
+        name: "newest",
         data: []
     };
-    async componentDidMount() {
+    componentDidMount() {
+        this.getdata(this.state.name);
+    }
+    // goto = id => {
+    //     // history.push(`/goods/${id}`)
+    //     // this.props.history.push(`/goods/${id}`)
+    //     console.log(this);
+    //     console.log(this.history);
+    // };
+
+    async getdata(name) {
         let {
             data: { data }
         } = await my.get("/goods/name", {
             name: 20,
             condition: "classrandom",
-            classcondition: this.props.name
+            classcondition: name
         });
         this.setState({
             data: data
         });
-        console.log(this.state);
-        
     }
 
-    getdata = (name) => {
-        console.log(name);
-        console.log(1);
-        
+    componentDidUpdate() {
+        if (this.state.name != this.props.name) {
+            this.setState({
+                name: this.props.name
+            });
+            this.getdata(this.props.name);
+        }
     }
 
     render() {
-        { this.getdata.bind(this, this.props.title)}
         if (this.state.data.length != 0) {
             return (
                 <div className="dynamic-find">
                     {this.state.data.map(item => {
+                   
+                        
                         return (
-                            <div className="dynamic-main" data-id={item._id} key={item._id}>
-                                <p>{item.content}</p>
-                            </div>
+                            <Link
+                                style={{ display: 'block'}}
+                                key={item._id}
+                                to={{
+                                    pathname: `/goods/${item._id}`,
+                                    state:{id:item._id}
+                                }}
+                            >
+                                <div
+                                    className="dynamic-main"
+                                    data-id={item._id}
+                                    key={item._id}
+                                >
+                                    <p>{item.content}</p>
+                                </div>
+                            </Link>
                         );
                     })}
                     {/* <div className="dynamic-main-left">

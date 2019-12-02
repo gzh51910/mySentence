@@ -78,7 +78,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/home" component={Home} />
                     <Route path="/find" component={Find} />
-                    <Route path="/goods:id" component={Goods} />
+                    <Route path="/goods/:id" component={Goods} />
                     <Route path="/add" component={Add} />
                     <Route path="/account" component={Account} />
                     <Route path="/mine" component={Mine} />
