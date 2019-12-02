@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { my } from '../Api';
 import "../Css/goods.min.css";
-import { Modal, Button, SearchBar } from "antd-mobile";
+import { Modal, Button } from "antd-mobile";
 class Goods extends Component {
     state = {
         data: "",
@@ -44,7 +44,7 @@ class Goods extends Component {
                     <i className="iconfont icon-houtui" onClick={() => this.props.history.go(-1)}></i>
                     <h3>句子详情</h3>
                     <i className="iconfont icon-more"></i>
-                    <i className="iconfont icon-f14"></i>
+                    <i className="iconfont icon-f14" onClick={() => location.reload([false])}></i>
                 </div>
                 <div className="mid">
                     <div className="con">
@@ -122,18 +122,8 @@ class Goods extends Component {
                         </ul>
                     </div>
                     <div className="down">
-                        <SearchBar
-                            className="searchx"
-                            value={this.state.value}
-                            placeholder="Search"
-                            onSubmit={value => console.log(value, 'onSubmit')}
-                            onClear={value => console.log(value, 'onClear')}
-                            onFocus={() => console.log('onFocus')}
-                            onBlur={() => console.log('onBlur')}
-                            onCancel={() => console.log('onCancel')}
-                            showCancelButton
-                            onChange={this.onChange}
-                        />
+                        <input type="text" placeholder="请输入评论" />
+                        <span>发送</span>
                     </div>
                 </div>
                 <Modal
