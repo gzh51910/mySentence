@@ -1,5 +1,7 @@
 import { InputItem, List, Toast, Button } from "antd-mobile";
 import React from "react";
+import my from "../Api/my"
+let { get } = my
 // import imga from "../img/maitian-002.jpg";
 let style = {
   margin: {
@@ -69,21 +71,31 @@ class ErrorInputExample extends React.Component {
     });
   };
   // 提交请求
-  submit = () => {
+  submit =  async() => {
     // console.log(this.state.pasError)
-    let { hasError, pasError } = this.state;
-    console.log(hasError, "===", this.state);
+    let { hasError, pasError, password, value } = this.state;
+    // 格式化电话号码
+    let username = value.replace(/\s/g, "")
     if (hasError) {
       alert("请输入正确的手机号");
     } else if (pasError) {
       alert("密码格式不正确");
     } else {
-      console.log("在这里验证消息");
+      // console.log("在这里验证消息");
+      let params = {
+        username,
+        password
+      }
+      let res = await get("/login",
+         params
+      )
+      console.log(res)
+
     }
   };
   // 跳转注册页面
   reg = () => {
-    
+
     this.props.history.push('/reg')
   };
   render() {

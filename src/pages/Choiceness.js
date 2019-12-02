@@ -53,7 +53,10 @@ class Choiceness extends Component {
                                     position: "absolute",
                                     left: "50%",
                                     top: "50%",
-                                    transform: "translate(-50%,-50%)"
+                                    transform: "translate(-50%,-50%)",
+                                    color: " #fff",
+                                    lineHeight: "200%",
+                                    fontWeight: "unset",
                                 }}>{val.content}</h3>
                             </div>
                         ))}
