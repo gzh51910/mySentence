@@ -16,7 +16,6 @@
     line-height: 20px;
 }
 
-
 .am-search {
     width: 85%;
     background: #fb7299;
@@ -96,4 +95,34 @@
 }
 .am-list-line {
     overflow: unset !important;
+}
+.mine-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 8rem;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.mine-nei {
+    margin-top: 1rem;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.mine-nei-li {
+    min-height: 44px;
+    padding-left: 3rem;
+    position: relative;
+}
+.mine-nei-li p {
+    border-bottom: 1px solid #ccc;
+    line-height: 44px;
+}
+.mine-nei-li i{
+    position: absolute;
+    top: 33%;
+    left: 4%;
 }
