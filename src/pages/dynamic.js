@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Css/find.css";
 import { my } from "../Api";
 class dynamic extends Component {
@@ -44,15 +44,15 @@ class dynamic extends Component {
             return (
                 <div className="dynamic-find">
                     {this.state.data.map(item => {
-                   
-                        
+
+
                         return (
                             <Link
-                                style={{ display: 'block'}}
+                                style={{ display: 'block' }}
                                 key={item._id}
                                 to={{
                                     pathname: `/goods/${item._id}`,
-                                    state:{id:item._id}
+                                    state: { id: item._id }
                                 }}
                             >
                                 <div
@@ -64,14 +64,15 @@ class dynamic extends Component {
                                 </div>
                             </Link>
                         );
-                    })}
+                    })
+                    }
                     {/* <div className="dynamic-main-left">
                             {this.props.title}
                         </div>
                         <div className="dynamic-main-right">
                             {this.props.name}
                         </div> */}
-                </div>
+                </div >
             );
         } else {
             return <div></div>;

@@ -68,7 +68,7 @@ class App extends Component {
     render() {
         //渲染页面，在里面再添加组件
         let pd = this.props.location.pathname;
-        if (pd == "/choiceness") {
+        if (pd == "/choiceness" || RegExp(/Goods/).test(pd)) {
             this.state.hidden = true;
         } else {
             this.state.hidden = false;
@@ -101,7 +101,6 @@ class App extends Component {
                                 icon={<i className={`iconfont ${item.icon}`} style={
                                     {
                                         fontSize: "1.6rem"
-                                        // background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
                                     }}
                                 />
                                 }
@@ -110,7 +109,6 @@ class App extends Component {
                                     color: "#fb7299",
                                     transform: "scale(1.2)",
                                     transition: "transform .18s"
-                                    // background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
                                 }}
                                 />
                                 }

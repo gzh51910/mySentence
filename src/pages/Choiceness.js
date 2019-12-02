@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { my } from '../Api';
-var color = { color: 'red' }
+import { Carousel } from "antd-mobile";
+import "../Css/choiceness.css";
 class Choiceness extends Component {
     state = {
         data: "",
-        rgb: ''
+        rgb: '',
     }
+    // componentDidMount() {
+    //     // simulate img loading
+    //     setTimeout(() => {
+    //       this.setState({
+    //         data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+    //       });
+    //     }, 100);
+    //   }
     async componentDidMount() {
 
         let { data: { data } } = await my.get("goods/name", {
@@ -27,16 +36,28 @@ class Choiceness extends Component {
         if (this.state.data) {
             return (
                 <div style={{ width: "100%", height: "100%" }}>
-                    {this.state.data.map((val, index) => (
-                        <div key={index} style={{ background: this.gg(), width: "100%", height: "100%", position: "relative" }}>
-                            <h3 style={{
-                                position: "absolute",
-                                left: "50%",
-                                top: "50%",
-                                transform: "translate(-50%,-50%)"
-                            }}>{val.content}</h3>
-                        </div>
-                    ))}
+                    <Carousel
+                        autoplay={false}
+                        dots={false}
+                        infinite
+                        vertical
+                        style={{ height: "100%" }}
+                    >
+                        {this.state.data.map((val, index) => (
+                            <div key={index}
+                                style={{ background: this.gg(), width: "100%", height: "100%", position: "relative" }}
+                                onClick={() => this.props.history.push(`/Goods/${val._id}`)
+                                }
+                            >
+                                <h3 style={{
+                                    position: "absolute",
+                                    left: "50%",
+                                    top: "50%",
+                                    transform: "translate(-50%,-50%)"
+                                }}>{val.content}</h3>
+                            </div>
+                        ))}
+                    </Carousel>
                 </div>
             )
         } else {
