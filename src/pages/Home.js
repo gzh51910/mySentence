@@ -47,7 +47,7 @@ class Home extends Component {
 
                                 < div
                                     key={val}
-                                    onClick={() => this.props.history.push(`/Goods/${val._id}`)
+                                    onClick={() => this.props.history.push(`/goods/${val._id}`)
                                     }
                                     style={{
                                         display: 'block',

@@ -6,6 +6,8 @@ import { my } from './Api';
 //引入组件
 import Home from "~/Home";
 import Find from "~/Find";
+import reg from "~/reg";
+import login from "~/login";
 import Goods from "~/Goods";
 import Add from "~/Add";
 import Account from "~/Account";
@@ -68,7 +70,7 @@ class App extends Component {
     render() {
         //渲染页面，在里面再添加组件
         let pd = this.props.location.pathname;
-        if (pd == "/choiceness" || RegExp(/Goods/).test(pd)) {
+        if (pd == "/choiceness" || RegExp(/goods/).test(pd)) {
             this.state.hidden = true;
         } else {
             this.state.hidden = false;
@@ -78,6 +80,8 @@ class App extends Component {
                 <Switch>
                     <Route path="/home" component={Home} />
                     <Route path="/find" component={Find} />
+                    <Route path="/reg" component={reg} />
+                    <Route path="/login" component={login} />
                     <Route path="/goods/:id" component={Goods} />
                     <Route path="/add" component={Add} />
                     <Route path="/account" component={Account} />
