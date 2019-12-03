@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 //引入路由
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
-import { TabBar, NavBar, Icon } from 'antd-mobile';
-import { my } from './Api';
+import { Route, Redirect, Switch, withRouter } from "react-router-dom";
+import { TabBar, NavBar, Icon } from "antd-mobile";
+import { my } from "./Api";
 //引入组件
 import Home from "~/Home";
 import Find from "~/Find";
@@ -16,10 +16,11 @@ import Choiceness from "~/Choiceness";
 import collect from "~/collect";
 //引入样式
 import "./Css/App.css";
-import "./Css/Moren.css"
+import "./Css/Moren.css";
+import { connect } from "react-redux";
 class App extends Component {
     state = {
-        selectedTab: '/home',
+        selectedTab: "/home",
         hidden: false,
         fullScreen: true,
         menu: [
@@ -57,21 +58,25 @@ class App extends Component {
     };
     goto = path => {
         let { history } = this.props;
-        history.push(path)
-    }
+        history.push(path);
+    };
     componentDidMount() {
         let bb = this.props.location.pathname;
-        if (bb == '/') {
-            bb = '/home'
+        if (bb == "/") {
+            bb = "/home";
         }
         this.setState({
-            selectedTab: bb,
-        })
+            selectedTab: bb
+        });
     }
     render() {
         //渲染页面，在里面再添加组件
         let pd = this.props.location.pathname;
-        if (pd == "/choiceness" || RegExp(/goods/).test(pd) || pd == "/collect") {
+        if (
+            pd == "/choiceness" ||
+            RegExp(/goods/).test(pd) ||
+            pd == "/collect"
+        ) {
             this.state.hidden = true;
         } else {
             this.state.hidden = false;
@@ -93,7 +98,13 @@ class App extends Component {
                     <Redirect from="/" to="/home" exact />
                     <Redirect to="notfound" />
                 </Switch>
-                <div style={this.state.fullScreen ? { position: 'fixed', width: '100%', bottom: 0 } : { height: 400 }}>
+                <div
+                    style={
+                        this.state.fullScreen
+                            ? { position: "fixed", width: "100%", bottom: 0 }
+                            : { height: 400 }
+                    }
+                >
                     <TabBar
                         unselectedTintColor="#949494"
                         tintColor="#fb7299"
@@ -101,38 +112,61 @@ class App extends Component {
                         hidden={this.state.hidden}
                     >
                         {this.state.menu.map(item => {
-                            return <TabBar.Item
-                                title={item.text}
-                                key={item.path}
-                                icon={<i className={`iconfont ${item.icon}`} style={
-                                    {
-                                        fontSize: "1.6rem"
+                            return (
+                                <TabBar.Item
+                                    title={item.text}
+                                    key={item.path}
+                                    icon={
+                                        <i
+                                            className={`iconfont ${item.icon}`}
+                                            style={{
+                                                fontSize: "1.6rem"
+                                            }}
+                                        />
+                                    }
+                                    selectedIcon={
+                                        <i
+                                            className={`iconfont ${item.icon}`}
+                                            style={{
+                                                fontSize: "1.6rem",
+                                                color: "#fb7299",
+                                                transform: "scale(1.2)",
+                                                transition: "transform .18s"
+                                            }}
+                                        />
+                                    }
+                                    selected={
+                                        this.state.selectedTab === item.path
+                                    }
+                                    onPress={() => {
+                                        this.goto(item.path);
+                                        this.setState({
+                                            selectedTab: item.path
+                                        });
                                     }}
-                                />
-                                }
-                                selectedIcon={<i className={`iconfont ${item.icon}`} style={{
-                                    fontSize: "1.6rem",
-                                    color: "#fb7299",
-                                    transform: "scale(1.2)",
-                                    transition: "transform .18s"
-                                }}
-                                />
-                                }
-                                selected={this.state.selectedTab === item.path}
-                                onPress={() => {
-                                    this.goto(item.path)
-                                    this.setState({
-                                        selectedTab: item.path,
-                                    });
-                                }}
-                            >
-                            </TabBar.Item>
+                                ></TabBar.Item>
+                            );
                         })}
                     </TabBar>
                 </div>
-            </div >
+            </div>
         );
     }
 }
+const mapStateToProps = state => {
+    // let { user } = state.common;
+    console.log(state.common);
+    
+    // let { goodslist } = state.cart;
+    // let totalPrice = goodslist.reduce(
+    //     (prev, item) => prev + item.goods_price * item.goods_qty,
+    //     0
+    // );
+    // return {
+    //     goodslist,
+    //     totalPrice
+    // };
+};
+App = connect(mapStateToProps)(App);
 App = withRouter(App);
 export default App;

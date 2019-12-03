@@ -106,6 +106,13 @@
     border-bottom: 1px solid #ccc;
 }
 
+.mine-login2 {
+    /* height: 8rem; */
+    display: block;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
 .mine-nei {
     margin-top: 1rem;
     background: #fff;

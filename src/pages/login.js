@@ -1,6 +1,8 @@
 import { InputItem, List, Toast, Button } from "antd-mobile";
 import React from "react";
 import my from "../Api/my"
+import login from '../store/action/common'
+import { connect } from 'react-redux'
 let { get } = my
 // import imga from "../img/maitian-002.jpg";
 let style = {
@@ -21,6 +23,7 @@ let style = {
     paddingTop: "75px"
   }
 };
+@connect()
 class ErrorInputExample extends React.Component {
   state = {
     value: "",
@@ -86,10 +89,11 @@ class ErrorInputExample extends React.Component {
         username,
         password
       }
-      let res = await get("/login",
+      let {data:{data}} = await get("/login",
          params
       )
-      console.log(res)
+      this.props.dispatch(login.login(data[0]));
+      this.props.history.push('/mine')
 
     }
   };

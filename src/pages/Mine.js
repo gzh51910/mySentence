@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import { withToken } from "../utils/hoc";
 import { Button, Icon } from "antd-mobile";
 import "../Css/find.css";
+import login from "../store/action/common";
+import { connect } from "react-redux";
+
+
 @withToken
+@connect()
 class Mine extends Component {
     state = {
         message: [
@@ -37,6 +42,8 @@ class Mine extends Component {
         ]
     };
     render() {
+        console.log(this);
+
         return (
             <div style={{ height: "100%" }}>
                 <h4
@@ -53,41 +60,79 @@ class Mine extends Component {
                     账号
                 </h4>
                 <div className="mine-login">
-                    <img
-                        src="../img/juzi.webp"
+                    <div style={{ display: "none" }}>
+                        <img
+                            src="../img/juzi.webp"
+                            style={{
+                                height: "3rem",
+                                width: "3rem"
+                            }}
+                        ></img>
+                        <Button
+                            type="primary"
+                            inline
+                            style={{
+                                background: "#fb7299",
+                                fontSize: "12px"
+                            }}
+                            onClick={() => this.props.history.push("/login")}
+                        >
+                            点击登录
+                        </Button>
+                    </div>
+                    <div
+                        className="mine-top"
                         style={{
-                            height: "3rem",
-                            width: "3rem"
+                            display: "flex",
+                            width: "100%",
+                            justifyContent: "space-around"
                         }}
-                    ></img>
-                    <Button
-                        type="primary"
-                        inline
-                        style={{
-                            background: "#fb7299",
-                            fontSize: "12px"
-                        }}
-                        onClick={() => this.props.history.push('/login')}
                     >
-                        点击登录
-                    </Button>
+                        <div
+                            style={{ borderRadius: "50%", overflow: "hidden" }}
+                        >
+                            <img src="../img/3.png" />
+                        </div>
+                        <span
+                            style={{
+                                width: "35%",
+                                fontSize: "24px",
+                                fonWeight: "bold"
+                            }}
+                        >
+                            sssss
+                        </span>
+                        <Button
+                            type="primary"
+                            inline
+                            style={{
+                                background: "rgb(243, 234, 234)",
+                                fontSize: "12px",
+                                color: "#000"
+                            }}
+                            // onClick={() => this.props.dispatch(login.logout)}
+                        >
+                            我的主页
+                        </Button>
+                    </div>
                 </div>
-                <ul className="mine-nei"    >
+                <ul className="mine-nei">
                     {this.state.message.map(item => {
-                        return <li className={"mine-nei-li"} key={item.name}>
-                        <i className={`iconfont ${item.icon}`}></i>
-                            <p>{item.name}</p>
-                            <Icon
-                                type="right"
-                                style={{
-                                    position: "absolute",
-                                    top: "22%",
-                                    right: "2%"
-                                }}
-                            />
-                        </li>
+                        return (
+                            <li className={"mine-nei-li"} key={item.name}>
+                                <i className={`iconfont ${item.icon}`}></i>
+                                <p>{item.name}</p>
+                                <Icon
+                                    type="right"
+                                    style={{
+                                        position: "absolute",
+                                        top: "22%",
+                                        right: "2%"
+                                    }}
+                                />
+                            </li>
+                        );
                     })}
-
                 </ul>
             </div>
         );

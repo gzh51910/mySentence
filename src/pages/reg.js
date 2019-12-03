@@ -101,7 +101,6 @@ class ErrorInputExample extends React.Component {
       let res = await post("/reg",
         params
       )
-      console.log(res)
     }
     this.props.history.push('/login')
   };
