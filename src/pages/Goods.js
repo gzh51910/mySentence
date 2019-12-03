@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { my } from '../Api';
 import "../Css/goods.min.css";
-import { Modal, Button } from "antd-mobile";
+import { Modal, Button, Toast } from "antd-mobile";
 class Goods extends Component {
     state = {
         data: "",
         modal: false,
+        modal1: false,
     }
     async componentDidMount() {
         let pd = this.props.location.pathname;
@@ -44,13 +45,24 @@ class Goods extends Component {
             e.preventDefault();
         }
     }
+    go() {
+        if (this.props.location.pathname == "/goods/notfound") {
+            this.props.history.push('/')
+        } else {
+            this.props.history.go(-1)
+        }
+        // let data = await my.get("/goods/sss", {
+        //     query: "人生"
+        // });
+        // console.log(data);
+    }
     render() {
         return (
             <div className="goods">
                 <div className="top subside">
-                    <i className="iconfont icon-houtui" onClick={() => this.props.history.go(-1)}></i>
+                    <i className="iconfont icon-houtui" onClick={() => this.go()}></i>
                     <h3>句子详情</h3>
-                    <i className="iconfont icon-more"></i>
+                    <i className="iconfont icon-more" onClick={this.showModal('modal1')}></i>
                     <i className="iconfont icon-f14" onClick={() => location.reload([false])}></i>
                 </div>
                 <div className="mid">
@@ -144,6 +156,16 @@ class Goods extends Component {
                     <div style={{ height: 150, overflow: 'scroll' }}>
                         {this.state.data.content}
                     </div>
+                </Modal>
+                <Modal
+                    popup
+                    visible={this.state.modal1}
+                    onClose={this.onClose('modal1')}
+                    animationType="slide-up"
+                >
+                    <div className="xx" onClick={() => Toast.info('就你还想举报我，食屎拉累', 2)}>举报</div>
+                    <div className="gg"></div>
+                    <div className="qx" onClick={() => this.onClose('modal1')()}>取消</div>
                 </Modal>
             </div >
         )

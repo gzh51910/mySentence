@@ -53,7 +53,7 @@
 }
 
 .goods .mid .con {
-  height: 50%;
+  height: 55%;
   padding: 5%;
 }
 
@@ -283,4 +283,20 @@
 .goods .my-drawer .am-drawer-sidebar .am-list {
   width: 300px;
   padding: 0;
+}
+
+.am-modal-popup-slide-up {
+  height: 15%;
+}
+
+.am-modal-popup-slide-up .am-modal-body .xx,
+.am-modal-popup-slide-up .am-modal-body .qx {
+  height: 47%;
+  line-height: 3rem;
+  color: #000;
+}
+
+.am-modal-popup-slide-up .am-modal-body .gg {
+  height: 6%;
+  background: #f0f0f0;
 }
