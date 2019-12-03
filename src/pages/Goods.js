@@ -8,11 +8,21 @@ class Goods extends Component {
         modal: false,
     }
     async componentDidMount() {
-        let { data: { data } } = await my.get(`goods/${this.props.match.params.id}`, {
-        })
-        this.setState({
-            data: data[0]
-        });
+        let pd = this.props.location.pathname;
+        if (pd == "/goods/notfound") {
+            let { data: { data } } = await my.get("goods/name", {
+                name: 1,
+                condition: "random"
+            })
+            this.setState({
+                data: data[0]
+            });
+        } else {
+            let { data: { data } } = await my.get(`goods/${this.props.match.params.id}`)
+            this.setState({
+                data: data[0]
+            });
+        }
     }
     showModal = key => (e) => {
         e.preventDefault(); // 修复 Android 上点击穿透
@@ -25,7 +35,6 @@ class Goods extends Component {
             [key]: false,
         });
     }
-
     onWrapTouchStart = (e) => {
         if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
             return;
@@ -36,8 +45,6 @@ class Goods extends Component {
         }
     }
     render() {
-        console.log(this.state.data);
-
         return (
             <div className="goods">
                 <div className="top subside">
@@ -63,7 +70,9 @@ class Goods extends Component {
                     </div>
                     <div className="kong"></div>
                     <div className="sx">
-                        <div className="an"><span>猜你喜欢：</span><Button type="primary" size="small">点这里</Button>
+                        <div className="an"><span>猜你喜欢：</span>
+                            <Button type="primary" size="small" onClick={() => this.props.history.push('/goods/')
+                            }>点这里</Button>
                         </div>
                         <div className="xx"><span>出处：</span>
                             <div className="tp">
