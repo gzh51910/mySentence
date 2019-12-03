@@ -72,26 +72,25 @@ class Mine extends Component {
                         点击登录
                     </Button>
                 </div>
-                <ul className="mine-nei">
+                <ul className="mine-nei"    >
                     {this.state.message.map(item => {
-                        return <li className={"mine-nei-li"}>
-                        <i className={`iconfont ${item.icon}`}></i>
+                        return <li className={"mine-nei-li"} key={item.name}>
+                            <i className={`iconfont ${item.icon}`}></i>
                             <p>{item.name}</p>
-                        <Icon
-                            type="right"
-                            style={{
-                                position: "absolute",
-                                top: "22%",
-                                right: "2%"
-                            }}
-                        />
-                    </li>
+                            <Icon
+                                type="right"
+                                style={{
+                                    position: "absolute",
+                                    top: "22%",
+                                    right: "2%"
+                                }}
+                            />
+                        </li>
                     })}
-                    
+
                 </ul>
             </div>
         );
     }
 }
-// Mine = withToken(Mine);
 export default Mine;
