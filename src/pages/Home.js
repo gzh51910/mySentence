@@ -11,7 +11,7 @@ class Home extends Component {
         imgHeight: 500,
     }
     async componentDidMount() {
-        this.props.bb("hhhhhh")
+        // this.props.bb("hhhhhh")
 
         let { data: { data } } = await my.get("goods/name", {
             name: 10,

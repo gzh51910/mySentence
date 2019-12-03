@@ -74,7 +74,7 @@ class Mine extends Component {
                 </div>
                 <ul className="mine-nei">
                     {this.state.message.map(item => {
-                        return <li className={"mine-nei-li"}>
+                        return <li className={"mine-nei-li"} key={item.name}>
                         <i className={`iconfont ${item.icon}`}></i>
                             <p>{item.name}</p>
                         <Icon
