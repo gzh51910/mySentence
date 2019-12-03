@@ -1,18 +1,28 @@
 import React, { Component } from "react";
 import { my } from '../Api';
 import "../Css/goods.min.css";
-import { Modal, Button, SearchBar } from "antd-mobile";
+import { Modal, Button } from "antd-mobile";
 class Goods extends Component {
     state = {
         data: "",
         modal: false,
     }
     async componentDidMount() {
-        let { data: { data } } = await my.get(`goods/${this.props.match.params.id}`, {
-        })
-        this.setState({
-            data: data[0]
-        });
+        let pd = this.props.location.pathname;
+        if (pd == "/goods/notfound") {
+            let { data: { data } } = await my.get("goods/name", {
+                name: 1,
+                condition: "random"
+            })
+            this.setState({
+                data: data[0]
+            });
+        } else {
+            let { data: { data } } = await my.get(`goods/${this.props.match.params.id}`)
+            this.setState({
+                data: data[0]
+            });
+        }
     }
     showModal = key => (e) => {
         e.preventDefault(); // 修复 Android 上点击穿透
@@ -25,7 +35,6 @@ class Goods extends Component {
             [key]: false,
         });
     }
-
     onWrapTouchStart = (e) => {
         if (!/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
             return;
@@ -36,15 +45,13 @@ class Goods extends Component {
         }
     }
     render() {
-        console.log(this.state.data);
-
         return (
             <div className="goods">
                 <div className="top subside">
                     <i className="iconfont icon-houtui" onClick={() => this.props.history.go(-1)}></i>
                     <h3>句子详情</h3>
                     <i className="iconfont icon-more"></i>
-                    <i className="iconfont icon-f14"></i>
+                    <i className="iconfont icon-f14" onClick={() => location.reload([false])}></i>
                 </div>
                 <div className="mid">
                     <div className="con">
@@ -63,7 +70,9 @@ class Goods extends Component {
                     </div>
                     <div className="kong"></div>
                     <div className="sx">
-                        <div className="an"><span>猜你喜欢：</span><Button type="primary" size="small">点这里</Button>
+                        <div className="an"><span>猜你喜欢：</span>
+                            <Button type="primary" size="small" onClick={() => this.props.history.push('/goods/')
+                            }>点这里</Button>
                         </div>
                         <div className="xx"><span>出处：</span>
                             <div className="tp">
@@ -122,18 +131,8 @@ class Goods extends Component {
                         </ul>
                     </div>
                     <div className="down">
-                        <SearchBar
-                            className="searchx"
-                            value={this.state.value}
-                            placeholder="Search"
-                            onSubmit={value => console.log(value, 'onSubmit')}
-                            onClear={value => console.log(value, 'onClear')}
-                            onFocus={() => console.log('onFocus')}
-                            onBlur={() => console.log('onBlur')}
-                            onCancel={() => console.log('onCancel')}
-                            showCancelButton
-                            onChange={this.onChange}
-                        />
+                        <input type="text" placeholder="请输入评论" />
+                        <span>发送</span>
                     </div>
                 </div>
                 <Modal

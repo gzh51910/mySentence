@@ -37,20 +37,11 @@ class Home extends Component {
                             cellSpacing={20}
                             slideWidth={0.8}
                             dots={false}
-                            beforeChange={(from, to) => {
-                            }
-
-                            }
-                            afterChange={index => this.setState({ slideIndex: index })
-                            }
-                        >
+                            beforeChange={(from, to) => { }}
+                            afterChange={index => this.setState({ slideIndex: index })}>
                             {this.state.data.map((val, index) => (
-                                // console.log(val._id),
-
                                 < div
                                     key={val}
-                                    onClick={() => this.props.history.push(`/goods/${val._id}`)
-                                    }
                                     style={{
                                         display: 'block',
                                         position: 'relative',
@@ -59,10 +50,11 @@ class Home extends Component {
                                         boxShadow: ' 0px 0px 0px 2px rgba(0, 0, 0, 0.2)',
                                         borderRadius: "5%",
                                         overflow: "hidden"
-                                    }}
-                                >
-                                    <img src={val.cover} />
-                                    <p className="char">{val.content}</p>
+                                    }}>
+                                    <img src={val.cover} onClick={() => this.props.history.push(`/goods/${val._id}`)
+                                    } />
+                                    <p className="char" onClick={() => this.props.history.push(`/goods/${val._id}`)
+                                    }>{val.content}</p>
                                     <div className="btm">
                                         <i className="iconfont icon-shoucang4"><span>{val.reputation}</span></i>
                                         <i className="iconfont icon-xinxi"><span>3</span></i>
