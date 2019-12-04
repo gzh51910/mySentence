@@ -93,13 +93,12 @@ class ErrorInputExample extends React.Component {
          params
       )
       this.props.dispatch(login.login(data[0]));
+      localStorage.setItem('user', JSON.stringify(data[0]))
       this.props.history.push('/mine')
-
     }
   };
   // 跳转注册页面
   reg = () => {
-
     this.props.history.push('/reg')
   };
   render() {

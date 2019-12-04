@@ -120,16 +120,26 @@
 }
 
 .mine-nei-li {
-    min-height: 44px;
+    min-height: 3rem;
     padding-left: 3rem;
     position: relative;
 }
 .mine-nei-li p {
     border-bottom: 1px solid #ccc;
-    line-height: 44px;
+    line-height: 3rem;
 }
 .mine-nei-li i{
     position: absolute;
     top: 33%;
     left: 4%;
+}
+.logout{
+    width: 100%;
+    margin-top: 5%;
+    line-height: 3rem;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    background: #fff;
+    color: red;
 }

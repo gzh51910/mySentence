@@ -167,6 +167,6 @@ const mapStateToProps = state => {
     //     totalPrice
     // };
 };
-App = connect(mapStateToProps)(App);
+// App = connect(mapStateToProps)(App);
 App = withRouter(App);
 export default App;
