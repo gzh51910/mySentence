@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { my } from '../Api';
 import "../Css/goods.min.css";
 import { Modal, Button, Toast } from "antd-mobile";
+import { withToken } from "../utils/hoc";
+@withToken
 class Goods extends Component {
     state = {
         data: "",
@@ -75,7 +77,7 @@ class Goods extends Component {
                         </div>
                     </div>
                     <div className="mes">
-                        <i className="iconfont icon-shoucang4"><span>{this.state.data.reputation}</span></i>
+                        <i className="iconfont icon-shoucang4" onClick={() => this.props.add(this.state.data)}><span id="add" onClick={() => document.getElementById("add").innerText++}>{this.state.data.reputation}</span></i>
                         <i className="iconfont icon-shoucang"></i>
                         <i className="iconfont icon-zhuanfa"></i>
                         <span>由<span>我练功发自真心</span>投稿</span>

@@ -21,7 +21,15 @@ class Home extends Component {
             data
         });
     }
-
+    //     async add(){
+    //         let { data: { data } } = await my.get("goods/upda", {
+    //             id: 10,
+    //             condition: "random"
+    //         })
+    //         this.setState({
+    //             data
+    //         });
+    //    }
     render() {
         if (this.state.data) {
             return (
@@ -56,7 +64,8 @@ class Home extends Component {
                                     <p className="char" onClick={() => this.props.history.push(`/goods/${val._id}`)
                                     }>{val.content}</p>
                                     <div className="btm">
-                                        <i className="iconfont icon-shoucang4"><span>{val.reputation}</span></i>
+                                        <i className="iconfont icon-shoucang4" onClick={() => this.props.add(this.state.data[index])
+                                        }><span onClick={() => val.reputation++}>{val.reputation}</span></i>
                                         <i className="iconfont icon-xinxi"><span>3</span></i>
                                         <i className="iconfont icon-shoucang"></i>
                                         <i className="iconfont icon-zhuanfa"></i>

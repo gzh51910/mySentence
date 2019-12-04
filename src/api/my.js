@@ -5,18 +5,21 @@ const my = axios.create({
     baseURL: 'http://localhost:9999'
 });
 
-function get(path,params,config={}){
-    return my.get(path,{
+function get(path, params, config = {}) {
+    return my.get(path, {
         ...config,
         params
     })
 }
 
-function post(path,data={},config={}){
-    return my.post(path,data,config)
+function post(path, data = {}, config = {}) {
+    return my.post(path, data, config)
 }
-
+function patch(path, data = {}, config = {}) {
+    return my.patch(path, data, config);
+}
 export default {
     get,
-    post
+    post,
+    patch
 }

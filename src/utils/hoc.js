@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { my } from '../Api';
 export function withToken(InnerComponent) {
     return class OuterComponent extends Component {
         state = {
             Authorization: '',
-            data: '1',
-            bb(x) {
-                console.log(x);
-
+            async add(data) {
+                await my.patch("goods/upda", {
+                    id: data._id,
+                    value: data.reputation
+                })
             }
         }
 
