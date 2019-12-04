@@ -2,7 +2,6 @@ import React, { Component } from "react";
 //引入路由
 import { Route, Redirect, Switch, withRouter } from "react-router-dom";
 import { TabBar, NavBar, Icon } from "antd-mobile";
-import { my } from "./Api";
 //引入组件
 import Home from "~/Home";
 import Find from "~/Find";
@@ -17,7 +16,6 @@ import collect from "~/collect";
 //引入样式
 import "./Css/App.css";
 import "./Css/Moren.css";
-import { connect } from "react-redux";
 class App extends Component {
     state = {
         selectedTab: "/home",
@@ -153,20 +151,5 @@ class App extends Component {
         );
     }
 }
-const mapStateToProps = state => {
-    // let { user } = state.common;
-    console.log(state.common);
-    
-    // let { goodslist } = state.cart;
-    // let totalPrice = goodslist.reduce(
-    //     (prev, item) => prev + item.goods_price * item.goods_qty,
-    //     0
-    // );
-    // return {
-    //     goodslist,
-    //     totalPrice
-    // };
-};
-// App = connect(mapStateToProps)(App);
 App = withRouter(App);
 export default App;
