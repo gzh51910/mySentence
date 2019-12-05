@@ -151,7 +151,7 @@ npm run build
 ```
 <a name="注册"></a>
 ## 注册
-![首页](./srv/注册.png)
+![首页](./src/img/注册.png)
 ```
     同上
 ```
