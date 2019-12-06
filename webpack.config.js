@@ -5,6 +5,9 @@ const path = require('path');
 module.exports = {
     //入口
     entry: './src/main.js',
+    output: {
+        publicPath: './'
+    },
     //测试服务器
     devServer: {
         contentBase: path.join(__dirname, './public'),
